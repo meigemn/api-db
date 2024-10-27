@@ -4,7 +4,7 @@ import { revalidatePath } from 'next/cache'
 
 
 async function obtenerProductos(query) {
-    const response = await fetch('http://localhost:3001/productos')
+    const response = await fetch('http://localhost:4000/productos')
     const productos = await response.json()
 
     // Introducimos un retardo artificial
@@ -18,16 +18,14 @@ async function eliminarProducto(formData) {
     'use server'
     const id = formData.get('id')
 
-    await fetch('http://localhost:3001/productos/' + id, { method: 'DELETE' })
+    await fetch('http://localhost:4000/productos/' + id, { method: 'DELETE' })
 
     revalidatePath('/productos-api')
 }
 
 
 async function Productos({ query }) {
-
     const productos = await obtenerProductos(query)
-
 
     return (
         <>

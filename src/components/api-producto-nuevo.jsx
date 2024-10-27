@@ -5,7 +5,7 @@ async function nuevoProducto(formData) {
     'use server'
     const [nombre, descripcion, precio] = formData.values()
 
-    const response = await fetch('http://localhost:3001/productos', {
+    const response = await fetch('http://localhost:4000/productos', {
         method: 'POST',
         body: JSON.stringify({ nombre, descripcion, precio: +precio, createdAt: new Date().toISOString() })
     })

@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation'
 
 
 async function obtenerProducto(id) {
-    const response = await fetch('http://localhost:3001/productos/' + id)
+    const response = await fetch('http://localhost:4000/productos/' + id)
     if (!response.ok) notFound()
     const producto = await response.json()  
 
