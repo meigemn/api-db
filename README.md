@@ -18,8 +18,14 @@ Hacen uso de **`params`** para mostrar un producto.
 
 > **NOTA:**
 >
-> A partir de NextJS 15, el acceso a `params` y `searchParams` es asíncrono.
+> A partir de NextJS 15, el acceso a `params` y `searchParams` es asíncrono. A continuación se muestran ejemplos de uso:
 >
+> ```js
+> async function Page({ params, searchParams }) {
+>   const { query } = await searchParams
+>   const { id } = await params
+>   // ...
+> }  
 > 
 
 ## Construcción del proyecto
