@@ -2,7 +2,6 @@ import Buscar from '@/components/buscar'
 import Link from 'next/link'
 import { revalidatePath } from 'next/cache'
 
-
 async function obtenerProductos(query) {
     const response = await fetch('http://localhost:4000/productos')
     const productos = await response.json()
@@ -10,7 +9,7 @@ async function obtenerProductos(query) {
     // Introducimos un retardo artificial
     // await new Promise(resolve => setTimeout(resolve, 2000))
 
-    return productos.filter(a => a.nombre.toLowerCase().includes(query))
+    return productos.filter(producto => producto.nombre.toLowerCase().includes(query))
 }
 
 
