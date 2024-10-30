@@ -7,7 +7,10 @@ import { Suspense } from "react";
 
 
 async function ProductosPage({ searchParams }) {
-    const {query} = await searchParams;
+    const { query } = await searchParams;
+
+    // Introducimos un retardo artificial
+    // await new Promise(resolve => setTimeout(resolve, 2000))
 
     return (
         <section className="min-h-screen max-w-[1024px] mx-auto px-10 py-10">
@@ -17,11 +20,11 @@ async function ProductosPage({ searchParams }) {
                 API REST
             </h1>
 
-            <Suspense fallback={ <Fallback>Nuevo producto ... </Fallback> }>
-                <ProductoNuevo  />
+            <Suspense fallback={<Fallback>Nuevo producto ... </Fallback>}>
+                <ProductoNuevo />
             </Suspense>
 
-            <Suspense fallback={ <Fallback>Obteniendo datos ... </Fallback> }>
+            <Suspense fallback={<Fallback>Obteniendo datos ... </Fallback>}>
                 <Productos query={query || ''} />
             </Suspense>
         </section>

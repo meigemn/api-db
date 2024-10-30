@@ -10,6 +10,9 @@ import Fallback from "@/components/fallback";
 async function ProductosPage({ searchParams }) {
     const {query} = await searchParams;
 
+    // Introducimos un retardo artificial
+    // await new Promise(resolve => setTimeout(resolve, 2000))
+
     return (
         <section className="min-h-screen max-w-[1024px] mx-auto px-10 py-10">
             <Link href="/" className="fixed text-4xl p-2 bg-orange-300 rounded-full">🏠</Link>
@@ -22,7 +25,7 @@ async function ProductosPage({ searchParams }) {
                 <ProductoNuevo  />
             </Suspense>
 
-            <Suspense fallback={ <Fallback>Obteniendo datos ... </Fallback> }>
+            <Suspense fallback={ <Fallback>Obteniendo productos ... </Fallback> }>
                 <Productos query={query || ''} />
             </Suspense>
         </section>

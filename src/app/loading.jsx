@@ -1,3 +1,4 @@
+
 function Loading() {
     return (
         <section className="min-h-screen max-w-[1024px] mx-auto grid place-content-center">
