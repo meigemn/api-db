@@ -1,12 +1,12 @@
 import Link from "next/link";
 import { notFound } from 'next/navigation'
-import { db } from '@/lib/db'
+import mysql from '@/lib/mysql'
 
 
 async function obtenerProducto(id) {
     const sql = 'select * from productos where id = ?';
     const values = [id]
-    const [rows] = await db.query(sql, values);
+    const [rows] = await mysql.query(sql, values);
 
     // Introducimos un retardo artificial
     // await new Promise(resolve => setTimeout(resolve, 2000))

@@ -1,6 +1,6 @@
 import Buscar from '@/components/buscar'
 import Link from 'next/link'
-import mysql from '@/lib/db'
+import mysql from '@/lib/mysql'
 import { revalidatePath } from 'next/cache'
 
 
