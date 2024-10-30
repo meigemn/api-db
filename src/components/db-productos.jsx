@@ -1,6 +1,6 @@
 import Buscar from '@/components/buscar'
 import Link from 'next/link'
-import { db } from '@/lib/db'
+import mysql from '@/lib/db'
 import { revalidatePath } from 'next/cache'
 
 
@@ -8,7 +8,7 @@ import { revalidatePath } from 'next/cache'
 async function obtenerProductos(query) {
     const sql = 'select * from `productos` where nombre like ?';
     const values = [`%${query}%`]
-    const [productos] = await db.query(sql, values);
+    const [productos] = await mysql.query(sql, values);
     
     // Introducimos un retardo artificial
     // await new Promise(resolve => setTimeout(resolve, 2000))
@@ -23,7 +23,7 @@ async function eliminarProducto(formData) {
 
     const sql = 'delete from productos where id = ?'
     const values = [id]
-    await db.query(sql, values);
+    await mysql.query(sql, values);
 
     revalidatePath('/productos-db')
 }

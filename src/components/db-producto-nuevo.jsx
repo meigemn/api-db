@@ -1,4 +1,4 @@
-import { db } from "@/lib/db"
+import mysql from "@/lib/db"
 import { revalidatePath } from "next/cache"
 
 
@@ -11,7 +11,7 @@ async function nuevoProducto(formData) {
     const sql = 'insert into `productos` (`nombre`, `descripcion`, `precio`) values (?, ?, ?)'
     const values = [nombre, descripcion, precio];
 
-    const [result, fields] = await db.query(sql, values)
+    const [result, fields] = await mysql.query(sql, values)
     revalidatePath('/productos')
 }
 
