@@ -1,7 +1,7 @@
-DROP DATABASE IF EXISTS productos;
+DROP DATABASE IF EXISTS tienda;
 
-CREATE DATABASE productos;
-USE productos;
+CREATE DATABASE tienda;
+USE tienda;
 
 
 CREATE TABLE productos (
