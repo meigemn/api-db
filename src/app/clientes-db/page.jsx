@@ -1,13 +1,13 @@
-import Productos from "@/components/db-productos";
-import ProductoNuevo from "@/components/db-producto-nuevo";
+import Clientes from "@/components/db-clientes";
 import { Suspense } from "react";
 import Link from "next/link";
 import Fallback from "@/components/fallback";
+import ClienteNuevo from "@/components/db-cliente-nuevo";
 
 
 
 
-async function ProductosPage({ searchParams }) {
+async function ClientesPage({ searchParams }) {
     const {query} = await searchParams;
 
     // Introducimos un retardo artificial
@@ -20,16 +20,15 @@ async function ProductosPage({ searchParams }) {
             <h1 className='py-10 text-3xl text-blue-500 text-center border-b-4 border-b-blue-500'>
                 BASE DE DATOS
             </h1>
-          
-            <Suspense fallback={ <Fallback>Nuevo producto ... </Fallback> }>
-                <ProductoNuevo  />
+            <Suspense fallback={ <Fallback>Nuevo cliente ... </Fallback> }>
+                <ClienteNuevo  />
             </Suspense>
 
-            <Suspense fallback={ <Fallback>Obteniendo productos ... </Fallback> }>
-                <Productos query={query || ''} />
-            </Suspense>
+            {<Suspense fallback={ <Fallback>Obteniendo Clientes ... </Fallback> }>
+                <Clientes query={query || ''} />
+            </Suspense>}
         </section>
     );
 }
 
-export default ProductosPage;
+export default ClientesPage;

@@ -1,12 +1,11 @@
 import Link from "next/link";
 import Fallback from "@/components/fallback";
-import Productos from "@/components/api-productos";
-import ProductoNuevo from "@/components/api-producto-nuevo";
+import ClienteNuevo from "@/components/api-cliente-nuevo";
 import { Suspense } from "react";
+import Clientes from "@/components/api-clientes";
 
 
-
-async function ProductosPage({ searchParams }) {
+async function ClientesPage({ searchParams }) {
     const { query } = await searchParams;
 
     // Introducimos un retardo artificial
@@ -20,15 +19,16 @@ async function ProductosPage({ searchParams }) {
                 API REST
             </h1>
 
-            <Suspense fallback={<Fallback>Nuevo producto ... </Fallback>}>
-                <ProductoNuevo />
+            <Suspense fallback={<Fallback>Nuevo Cliente ... </Fallback>}>
+                <ClienteNuevo />
+            </Suspense>
+            <Suspense fallback={<Fallback>Nuevo Cliente ... </Fallback>}>
+                <Clientes query={query || ''} />
             </Suspense>
 
-            <Suspense fallback={<Fallback>Obteniendo datos ... </Fallback>}>
-                <Productos query={query || ''} />
-            </Suspense>
+            
         </section>
     );
 }
 
-export default ProductosPage;
+export default ClientesPage;

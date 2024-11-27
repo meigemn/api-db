@@ -1,7 +1,4 @@
 import Link from "next/link";
-
-
-
 async function Home() {
 
   // Introducimos un retardo artificial
@@ -26,9 +23,21 @@ async function Home() {
             API REST
           </Link>
           <p>Requisitos previos: <span className="font-bold">Deberás tener un servidor JSON para la API local.</span></p>
+          <br />
+          <Link href="/clientes-db" className="block text-2xl text-blue-400 font-bold">
+            BASE DE DATOS DE CLIENTES
+          </Link>
+          <p>Requisitos previos: <span className="font-bold">Deberás tener una servidor MySQL para la DB local.</span></p>
         </div>
 
+        <div className="flex flex-col items-center">
+          <Link href="/clientes-api" className="block text-2xl text-blue-400 font-bold">
+            API REST DE CLIENTES
+          </Link>
+          <p>Requisitos previos: <span className="font-bold">Deberás tener un servidor JSON para la API local.</span></p>
+        </div>
       </div>
+      
     </section>
   )
 }
